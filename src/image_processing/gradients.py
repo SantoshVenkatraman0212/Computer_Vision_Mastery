@@ -21,7 +21,7 @@ def gaussian_blur(in_img: np.ndarray):
     Returns:
         smooth_img: Image denoised and smoothened using gaussian blur kernel
     '''
-    smooth_img = convolve(in_img, 'blur', 3, 1, 'valid')
+    smooth_img = convolve(in_img, 'gaussian_blur', 3, 1, 'valid')
     return smooth_img
 
 def sobel_gradients(smooth_img: np.ndarray):
