@@ -8,3 +8,4 @@ gradient_demo_img_path = '/home/santosh_0212/computer_vision_mastery/data/gradie
 nms_demo_img_path = '/home/santosh_0212/computer_vision_mastery/data/NMS_demo_img'
 double_threshold_img_path = '/home/santosh_0212/computer_vision_mastery/data/double_thresholding_demo_img'
 hysteresis_img_path = '/home/santosh_0212/computer_vision_mastery/data/hysteresis_demo_img'
+canny_edge_comparison_img_path = '/home/santosh_0212/computer_vision_mastery/data/canny_edge_comparison_demo_img'
