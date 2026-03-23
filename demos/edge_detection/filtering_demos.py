@@ -2,7 +2,7 @@
 This file handles filter demos for convolution operation on a real image
 '''
 # Importing necessary libraries
-from src.image_processing.convolution import kernel_dict, convolve
+from src.image_processing.edge_detection.convolution import kernel_dict, convolve
 from config.paths import sample_img_path, filtered_sample_img_path
 import matplotlib.pyplot as plt
 import os

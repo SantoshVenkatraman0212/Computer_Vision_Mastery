@@ -6,7 +6,7 @@ Open-CV's canny edge implementation
 import numpy as np
 import cv2
 from config.paths import sample_img_path, canny_edge_comparison_img_path
-from src.image_processing.canny_edge_detection import canny_edge_detector
+from src.image_processing.edge_detection.canny_edge_detection import canny_edge_detector
 import os
 import matplotlib.pyplot as plt
 

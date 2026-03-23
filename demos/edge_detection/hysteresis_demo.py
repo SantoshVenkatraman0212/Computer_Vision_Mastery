@@ -5,11 +5,11 @@ objects
 # Importing necessary libraries
 import numpy as np
 from config.paths import sample_img_path, hysteresis_img_path
-from src.image_processing.gradients import (gaussian_blur, sobel_gradients, all_edges, 
+from src.image_processing.edge_detection.gradients import (gaussian_blur, sobel_gradients, all_edges, 
                                             orientation)
-from src.image_processing.edge_detection import radians_to_angle_conv, non_maximal_suppresion
-from src.image_processing.double_thresholding import double_threshold
-from src.image_processing.hysteresis import compute_hysteresis
+from src.image_processing.edge_detection.edge_detection import radians_to_angle_conv, non_maximal_suppresion
+from src.image_processing.edge_detection.double_thresholding import double_threshold
+from src.image_processing.edge_detection.hysteresis import compute_hysteresis
 import cv2
 import os
 import matplotlib.pyplot as plt

@@ -3,7 +3,7 @@ This file handles the initial setup steps required for harris corner / feature d
 '''
 # Importing necessary libraries
 import numpy as np
-from src.image_processing.gradients import gaussian_blur, sobel_gradients, all_edges
+from src.image_processing.edge_detection.gradients import gaussian_blur, sobel_gradients, all_edges
 
 def compute_structure_tensor(in_img: np.ndarray):
     '''

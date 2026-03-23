@@ -9,7 +9,7 @@ This file demonsrtates the following:
 
 import numpy as np
 from config.paths import sample_img_path, gradient_demo_img_path
-from src.image_processing.gradients import (gaussian_blur, sobel_gradients, all_edges, 
+from src.image_processing.edge_detection.gradients import (gaussian_blur, sobel_gradients, all_edges, 
                                             orientation)
 import cv2
 import os
