@@ -12,3 +12,5 @@ canny_edge_comparison_img_path = f'{sample_data_path}/edge_detection/canny_edge_
 harris_demo_img_path = f'{sample_data_path}/feature_detection/harris_feature_detection_demo_img'
 harris_comparison_demo_img_path = f'{sample_data_path}/feature_detection/harris_comparison_demo_img'
 shi_tomasi_demo_img_path = f'{sample_data_path}/feature_detection/shi_tomasi_demo_img'
+fast_demo_img_path = f'{sample_data_path}/feature_detection/FAST_demo_img'
+orb_demo_img_path = f'{sample_data_path}/feature_detection/ORB_demo_img'
