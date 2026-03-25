@@ -14,3 +14,5 @@ harris_comparison_demo_img_path = f'{sample_data_path}/feature_detection/harris_
 shi_tomasi_demo_img_path = f'{sample_data_path}/feature_detection/shi_tomasi_demo_img'
 fast_demo_img_path = f'{sample_data_path}/feature_detection/FAST_demo_img'
 orb_demo_img_path = f'{sample_data_path}/feature_detection/ORB_demo_img'
+orb_feature_matching_demo_img_path = f'{sample_data_path}/feature_detection/ORB_feature_matching_demo_img'
+refined_orb_matching_demo_img_path = f'{sample_data_path}/feature_detection/knn_lowe_ratio_ORB_demo_img'

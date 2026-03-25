@@ -23,11 +23,5 @@ def compute_ORB(in_img: np.ndarray):
     '''
     orb = cv2.ORB_create()
     key_points, desc = orb.detectAndCompute(in_img, None) # 2nd arg mask is None
-    x, y = [], []
-
-    for points in key_points:
-        xs, ys = points.pt
-        x.append(xs)
-        y.append(ys)
     
-    return x,y, desc
+    return key_points, desc

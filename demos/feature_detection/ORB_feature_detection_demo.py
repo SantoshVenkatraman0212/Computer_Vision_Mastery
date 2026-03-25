@@ -14,7 +14,17 @@ import matplotlib.pyplot as plt
 sample_img = cv2.imread(f'{sample_img_path}/{os.listdir(sample_img_path)[0]}', 0)
 
 # Computing descriptor and key points
-kp_x, kp_y, desc = compute_ORB(sample_img)
+kp, desc = compute_ORB(sample_img)
+
+# Getting the x and y coords of kp for plotting
+kp_x, kp_y = [], []
+for p in kp:
+    # Iterating over the cv2 key point object
+    # .pt gives a tuple of x and y coords
+    px, py = p.pt
+    kp_x.append(px)
+    kp_y.append(py)
+
 # Plotting the ORB feature points
 plt.figure(figsize = (10, 7))
 plt.imshow(sample_img, cmap = 'gray')
