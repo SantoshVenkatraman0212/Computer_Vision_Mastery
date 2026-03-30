@@ -28,18 +28,40 @@ def img_stitcher(img_a: np.ndarray, img_b: np.ndarray):
     src_pts, dest_pts = get_src_dest_matches(img_a, img_b)
     # Getting homography matrix and mask
     H, mask = compute_homography(src_pts, dest_pts)
-    # Making canvas to fit both the images
+    # Making canvas that can accurately accomodate both the images
     h1, w1 = img_a.shape
+    # Getting the corners of img_a
+    img_a_corners = np.array([[0, 0],
+                              [w1, 0],
+                              [w1, h1],
+                              [0, h1]], dtype = np.float32).reshape(-1, 1, 2)
+    # Warping img_a_corners
+    warped_img_a_corners = cv2.perspectiveTransform(img_a_corners, H)
+    # Getting the corners of img_b
     h2, w2 = img_b.shape
-    c_w = w1 + w2
-    c_h = max(h1, h2)
-    # Initializing the canvas 
-    canvas = np.zeros((c_h, c_w), dtype = np.uint8)
+    img_b_corners = np.array([[0, 0],
+                              [w2, 0],
+                              [w2, h2],
+                              [0, h2]], dtype = np.float32).reshape(-1, 1, 2)
+    # Overall canvas corner
+    canvas_corners = np.concatenate((warped_img_a_corners, img_b_corners), axis = 0)
+    [x_min, y_min] = np.int32(canvas_corners.min(axis = 0).ravel())
+    [x_max, y_max] = np.int32(canvas_corners.max(axis = 0).ravel())
+    
     # Warp img_a
     # Now img_a has been warped in such a way that it stretches across the entire canvas
-    warped_img_a = cv2.warpPerspective(img_a, H, (c_w, c_h)) # Here it's width, height as OpenCV uses (width, height)
+    # We need translation matrix so that image-A is expanded to fit the canvas
+    T = np.array([[1, 0, -x_min], 
+                  [0, 1, -y_min], 
+                  [0, 0, 1]])
+    # T is multiplied with H to obtain the homography matrix that expands to fit the canvas
+    H = T @ H
+    w = x_max - x_min
+    h = y_max - y_min
+    warped_img_a = cv2.warpPerspective(img_a, H, (w, h)) # Here it's width, height as OpenCV uses (width, height)
     # Now we're placing img_b which is left cropped image_a on the top left of the canvas
     # Place img_b in the canvas
+    canvas = np.zeros((h, w), dtype = np.uint8)
     canvas[: h2, : w2] = img_b
     # Masks for non-zero pixel values
     mask_a = warped_img_a > 0
