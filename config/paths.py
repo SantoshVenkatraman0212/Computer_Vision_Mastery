@@ -18,3 +18,4 @@ orb_feature_matching_demo_img_path = f'{sample_data_path}/feature_detection/ORB_
 refined_orb_matching_demo_img_path = f'{sample_data_path}/feature_detection/knn_lowe_ratio_ORB_demo_img'
 homography_demo_img_path = f'{sample_data_path}/geometric_vision/planar_homography_demo_img'
 image_stitching_img_path = f'{sample_data_path}/geometric_vision/image_stitching_demo_img'
+epipolar_geometry_img_path = f'{sample_data_path}/geometric_vision/epipolar_geometry_demo_img'
